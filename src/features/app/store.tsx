@@ -5,7 +5,11 @@ import {apiSlice} from "../../dogs/dogs-api-slice"
 export const store = configureStore({
     reducer: {
         counter: counterReducer,
+        
         [apiSlice.reducerPath] : apiSlice.reducerSlice
+    },
+    middleware: (getDefaultMiddleware) => {
+        return getDefaultMiddleware().concat(apiSlice.middleware);
     }
 });
 

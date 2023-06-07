@@ -4,10 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import {useAppDispatch, useAppSelector} from './features/app/hooks.tsx'
 import {incremented, amountAdded} from './features/counter/counter-slice.tsx'
+import {useFetchBreedsQuery} from './dogs/dogs-api-slice.tsx';
 
 function App() {
   const count = useAppSelector((state)=>state.counter.value);
   const dispatch = useAppDispatch();
+
+// const {data, isFetching } = useFetchBreedsQuery
+// error fix in progress
+
 //increment by fixed number of 3
   const handleClick = () => dispatch(amountAdded(3));
 
